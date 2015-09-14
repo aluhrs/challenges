@@ -1,3 +1,5 @@
+# First Pass. I feel like there could be a better way to do this than a class variable?
+
 # How would you define a Person class or struct so that any Person can be assigned as the parent of another Person?
 # And that the following relations between people are present?
 # bob = Person.new
