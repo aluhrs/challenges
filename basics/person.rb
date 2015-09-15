@@ -24,8 +24,8 @@ class Person
   # bob.children
   # [mary, fred]
   def update_children
-    if self.parent && self.name
-      parent.children << self.name
+    if self.parent
+      parent.children << self
     end
   end
 
@@ -41,5 +41,19 @@ class Person
       end
     end
     siblings
+  end
+
+  def grandchildren
+    grandchildren = []
+    if self.children
+      self.children.each do |c|
+        if c.children
+          c.children.each do |g|
+            grandchildren << g
+          end
+        end
+      end
+    end
+    grandchildren
   end
 end
