@@ -9,11 +9,12 @@
 # How would this work with N descendants.
 # person.descendants(level: 1) => # children
 # person.descendants(level: 2) => # grandchildren
-# person.descendants(levelL: 3) => # greatgrandchildren
+# person.descendants(level: 3) => # greatgrandchildren
 
 class Person
   attr_accessor :name, :parent, :children#, :siblings
 
+  # expect parent to come in as an array
   def initialize(options={})
     @name = options[:name]
     @parent = options[:parent]
@@ -24,8 +25,10 @@ class Person
   # bob.children
   # [mary, fred]
   def update_children
-    if self.parent
-      parent.children << self
+    if parent
+      parent.each do |p|
+        p.children << self
+      end
     end
   end
 
@@ -33,10 +36,14 @@ class Person
   # [fred]
   def siblings
     siblings = []
-    if self.parent && self.parent.children
-      self.parent.children.each do |c|
-        if c != self.name
-          siblings << c
+    if parent
+      parent.each do |p|
+        if p.children
+          p.children.each do |c|
+            if c != self
+              siblings << c
+            end
+          end
         end
       end
     end
@@ -45,8 +52,8 @@ class Person
 
   def grandchildren
     grandchildren = []
-    if self.children
-      self.children.each do |c|
+    if children
+      children.each do |c|
         if c.children
           c.children.each do |g|
             grandchildren << g
@@ -55,5 +62,8 @@ class Person
       end
     end
     grandchildren
+  end
+
+  def descendants(level:)
   end
 end
