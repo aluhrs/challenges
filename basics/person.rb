@@ -50,6 +50,8 @@ class Person
     siblings
   end
 
+  # bob.grandchildren
+  # [gkid]
   def grandchildren
     grandchildren = []
     if children
@@ -64,6 +66,12 @@ class Person
     grandchildren
   end
 
-  def descendants(level:)
+  def descendants(level: nil)
+    puts "children: #{children.inspect}"
+    return if children.empty? || level == nil || level <= 0
+    children.each do |c|
+      puts "child: #{c.inspect}"
+      c.descendants(level: level - 1)
+    end
   end
 end
