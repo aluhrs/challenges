@@ -12,9 +12,10 @@
 # person.descendants(level: 3) => # greatgrandchildren
 
 class Person
-  attr_accessor :name, :parent, :children#, :siblings
+  attr_accessor :name, :parent, :children
 
   # expect parent to come in as an array
+  # ex: Person.new(name: "Mary", parent: [bob])
   def initialize(options={})
     @name = options[:name]
     @parent = options[:parent]
@@ -66,9 +67,12 @@ class Person
     grandchildren
   end
 
-  def descendants(level: nil)
-    puts "children: #{children.inspect}"
-    return if children.empty? || level == nil || level <= 0
+  # Is just printing the descendants sufficient?
+  # If this is good, I would replace the contents 
+  # of the grandchildren method with just a 
+  # call to descdendants(level: 2)
+  def descendants(level: 0)
+    return if children.empty? || level <= 0
     children.each do |c|
       puts "child: #{c.inspect}"
       c.descendants(level: level - 1)
