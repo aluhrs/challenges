@@ -74,7 +74,7 @@ class Person
   def descendants(level: 0)
     return if children.empty? || level <= 0
     children.each do |c|
-      puts "child: #{c.inspect}"
+      puts "child: #{c.name}"
       c.descendants(level: level - 1)
     end
   end
