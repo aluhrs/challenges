@@ -7,11 +7,11 @@ class Schedule
 
   def initialize
     @courses = {
-      "relativity": [ "diff_eq", "intro_phy" ],
-      "diff_eq": [ "calc" ],
-      "intro_phy": [ "sci_thin" ],
-      "calc": [ ],
-      "sci_thin": [ ]
+      "Relativity": [ "Differential Equations", "Intro to Physics" ],
+      "Differential Equations": [ "Calculus" ],
+      "Intro to Physics": [ "Scientific Thinking" ],
+      "Calculus": [ ],
+      "Scientific Thinking": [ ]
     }
     @course_schedule = []
   end
