@@ -28,3 +28,12 @@ class NewQueue
     item
   end
 end
+
+queue = NewQueue.new
+queue.push(1)
+queue.push(2)
+queue.push(3)
+queue.pop == 1
+queue.pop == 2
+queue.pop == 3
+queue.pop == nil
