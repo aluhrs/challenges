@@ -12,8 +12,7 @@ class MirrorTree
     if empty_root?
       current_root.root = item
     elsif !empty_root? && !empty_left? && !empty_right?
-      current_root = make_new_current_root
-      puts "current after method: #{current_root.inspect}"
+      self.current_root = make_new_current_root
       add(item)
     elsif !empty_root? && !empty_left?
       current_root.right = item
@@ -52,10 +51,10 @@ class Node
   end
 end
 
-# puts "empty_root?: #{current_root.root.nil?}"
-# puts "empty_left?: #{current_root.left.nil?}"
-# puts "empty_right?: #{current_root.right.nil?}"
 tree = MirrorTree.new("1")
 tree.add("2")
 tree.add("2")
 tree.add("3")
+tree.add("4")
+tree.add("3")
+tree.add("4")
