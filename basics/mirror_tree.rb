@@ -51,10 +51,10 @@ class Node
   end
 end
 
-tree = MirrorTree.new("1")
-tree.add("2")
-tree.add("2")
-tree.add("3")
-tree.add("4")
-tree.add("3")
-tree.add("4")
+tree = MirrorTree.new(1)
+tree.add(2)
+tree.add(2)
+tree.add(3)
+tree.add(4)
+tree.add(3)
+tree.add(4)
