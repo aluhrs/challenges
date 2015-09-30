@@ -1,3 +1,11 @@
+# In a programming language of choice, define a function to check if a binary
+# tree is a mirror image. For statically typed languages, you can assume that
+# node values are all integers.
+
+# A binary tree is a mirror image of itself if its left and right subtrees are
+# identical mirror images i.e., the binary tree is symmetrical.
+# This is best explained with a few examples. Assume the input will be two trees.
+
 class BinarySearchTreeMirror
   def mirror?(root_left, root_right)
     if root_left.nil? && root_right.nil?
