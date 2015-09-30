@@ -1,4 +1,11 @@
 class BinarySearchTree
+  attr_accessor: :left, :root, :right
+  def initialize(left, root, right)
+    @left = left
+    @root = root
+    @right = right
+  end
+
   def equal?(left_tree, root, right_tree)
     if left_tree.length != right_tree.length
       puts "is this false? #{left_tree.length != right_tree.length}"
