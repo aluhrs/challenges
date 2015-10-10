@@ -5,36 +5,18 @@ class LinkedList
     @node = node
   end
 
-  def delete
-    if self.next && self.next.next
-      next_next = self.next.next
-      self.node = self.next.node
-      self.next = next_next
-    elsif self.next
-      self.node = self.next.node
-      self.next = nil
-    else
-      self.node = nil
-      self.next = nil
-    end
-    self
-  end
-end
+  def self.merge(l1, l2)
+    # if either list is empty, return the other list
+    return l1 unless l2
+    return l2 unless l1
 
-class MergedList
-  def merge(list1, list2, merged_list)
-    while list1.node || list2.node do
-      if (list2.node.nil? && list1.node) || ((list1.node < list2.node) if list1.node && list2.node)
-        merged_list.node = list1.node
-        list1 = list1.delete
-      elsif (list1.node.nil? && list2.node) || ((list1.node > list2.node) if list1.node && list2.node)
-        merged_list.node = list2.node
-        list2 = list2.delete
-      end
-      merged_list.next = LinkedList.new
-      merge(list1, list2, merged_list.next)
+    if l1.node < l2.node
+      l1.next = merge(l1.next, l2)
+      return l1
+    else
+      l2.next = merge(l1, l2.next)
+      return l2
     end
-    return merged_list
   end
 end
 
@@ -44,8 +26,7 @@ list1.next.next = LinkedList.new(7)
 list2 = LinkedList.new(2)
 list2.next = LinkedList.new(3)
 list2.next.next = LinkedList.new(8)
-merged_list = LinkedList.new()
-merged_list = MergedList.new.merge(list1, list2, merged_list)
+merged_list = LinkedList.merge(list1, list2)
 merged_list.node == 1
 merged_list.next.node == 2
 merged_list.next.next.node == 3
