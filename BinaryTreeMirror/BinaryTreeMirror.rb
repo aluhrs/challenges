@@ -36,4 +36,4 @@ left_root.add_left(3)
 left_root.add_right(4)
 right_root.add_left(4)
 right_root.add_right(3)
-BinarySearchTree.new.mirror?(left_root, right_root) == true
+BinaryTree.new.mirror?(left_root, right_root) == true
