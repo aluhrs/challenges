@@ -1,4 +1,4 @@
-class BinarySearchTree
+class BinaryTree
   def mirror?(left, right)
     if left.nil? && right.nil?
       return true
