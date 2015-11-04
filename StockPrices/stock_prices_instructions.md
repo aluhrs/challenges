@@ -20,5 +20,3 @@ No "shorting"—you must buy before you sell. You may not buy and sell in the sa
 
 Gotchas
 It is not sufficient to simply take the difference between the highest price and the lowest price, because the highest price may come before the lowest price. You must buy before you sell.
-
-What if the stock value goes down all day? In that case, the best profit will be negative.
